@@ -1,14 +1,9 @@
 import express from 'express';
-import authRoute from './auth.route';
 import calendarRoute from './calendar.route';
 
 const router = express.Router();
 
 const defaultRoutes = [
-  {
-    path: '/',
-    route: authRoute,
-  },
   {
     path: '/calendar',
     route: calendarRoute,

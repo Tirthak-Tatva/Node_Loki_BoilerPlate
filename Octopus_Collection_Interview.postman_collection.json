@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "3b87f580-bff0-44e6-b672-bdcc69e32a37",
+		"name": "Octopus_Collection_Interview",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getEvents",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pageNum\": 1,\r\n  \"pageSize\": 10\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{App_URL}}/v1/calendar/getevents",
+					"host": [
+						"{{App_URL}}"
+					],
+					"path": [
+						"v1",
+						"calendar",
+						"getevents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addevent",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Doctor's Appointment\",\r\n  \"description\": \"Doctor's Appointment\",\r\n  \"is_fullDay\": true,\r\n  \"is_private\": true,\r\n  \"location\": \"Pune\",\r\n  \"private\": true,\r\n  \"recurrence_pattern\": \"none\",\r\n  \"recurring\": false,\r\n  \"reminder_duration\": {\r\n    \"default_setting\": false,\r\n    \"minutes\": 5\r\n  },\r\n  \"reminder_enable\": true,\r\n  \"start_date\": \"2021-07-26T06:21:53.935Z\",\r\n  \"end_date\": \"2021-07-26T06:21:53.935Z\",\r\n  \"type\": \"Appointment\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{App_URL}}/v1/calendar/addevent",
+					"host": [
+						"{{App_URL}}"
+					],
+					"path": [
+						"v1",
+						"calendar",
+						"addevent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetEventByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{App_URL}}/v1/calendar/event/1",
+					"host": [
+						"{{App_URL}}"
+					],
+					"path": [
+						"v1",
+						"calendar",
+						"event",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteEventByID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{App_URL}}/v1/calendar/event/1",
+					"host": [
+						"{{App_URL}}"
+					],
+					"path": [
+						"v1",
+						"calendar",
+						"event",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateEventByID",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"title\": \"confirm Doctor's Appointment\",\r\n\t\"description\": \"Doctor's Appointment\",\r\n\t\"is_fullDay\": true,\r\n\t\"is_private\": true,\r\n\t\"location\": \"Pune\",\r\n\t\"private\": true,\r\n\t\"recurrence_pattern\": \"none\",\r\n\t\"recurring\": false,\r\n\t\"reminder_duration\": {\r\n\t\"default_setting\": false,\r\n\t\"minutes\": 5\r\n\t},\r\n\t\"reminder_enable\": true,\r\n\t\"start_date\": \"2021-04-26T06:21:53.935Z\",\r\n\t\"end_date\": \"2021-04-26T06:21:53.935Z\",\r\n\t\"type\": \"Appointment\",\r\n\t\"event_status\": \"CONFIRMED\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{App_URL}}/v1/calendar/event/1",
+					"host": [
+						"{{App_URL}}"
+					],
+					"path": [
+						"v1",
+						"calendar",
+						"event",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
