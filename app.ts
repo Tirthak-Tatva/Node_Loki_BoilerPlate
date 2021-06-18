@@ -11,33 +11,14 @@ var cookieParser = require('cookie-parser')
 
 
 const app = express();
-
-// set security HTTP headers
 app.use(helmet());
-
-app.use(express.static(__dirname + '/uploads'));
-
-// parse json request body
 app.use(express.json());
-
-// parse urlencoded request body
 app.use(express.urlencoded({ extended: true }));
-
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
-
-// parse application/json
 app.use(bodyParser.json());
-
-// sanitize request data
 app.use(xss());
-
 app.use(cookieParser())
-
-// enable cors
 app.use(cors());
-// app.options("*", cors);
-
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", '*');
   res.header("Access-Control-Allow-Credentials", 'true');
@@ -48,7 +29,6 @@ app.use(function(req, res, next) {
 
 app.use("/v1", routes);
 
-// send back a 404 error for any unknown api request
 app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, "Not found"));
 });
