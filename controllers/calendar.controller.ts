@@ -30,7 +30,7 @@ export const getEvents = async (
       // removeMeta: true
     });
   const totalCount = eventsCollection.data.length;
-  return res.json({
+  return res.status(200).json({
     totalCount,
     events: result
   });
@@ -76,7 +76,7 @@ export const updateEventByID = async (
         event.event_status = requestBody.event_status
       }
     );
-    return res.json({ message: 'Event Updated Successfully!!' });
+    return res.status(200).json({ message: 'Event Updated Successfully!!' });
   } else {
     return res.status(404).json({ message: 'Event Not Found!!' });
   }
@@ -96,7 +96,7 @@ export const deleteEventByID = async (
     const result = eventCollections.findAndRemove({
       $loki: { $eq: parseInt(req.params['eventId']) },
     });
-    return res.json({ message: 'Event Removed Successfully!!' });
+    return res.status(200).json({ message: 'Event Removed Successfully!!' });
   } else {
     return res.status(404).json({ message: 'Event Not Found!!' });
   }
